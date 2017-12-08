@@ -13,6 +13,7 @@ A recursive call happens when a function makes a call to itself. Generally, ther
 2. A base case. This is some state of a variable (usually local variable) that determines when a recursive call returns
 
 {% highlight javascript %}
+  // factorial.js
   function factorial(n) {
     if(n === 0) { // Base case
       return 1
@@ -57,6 +58,7 @@ So how can we solve this and without moving to an iterative approach? We can use
 We say that a function is using tail recursion, if its last line of execution is a recursive call. A function using tail recursion will perform all its calcutations before making its recursive call, this means that each recursive call does not create a new stack frame. 
 
 {% highlight javascript %}
+  // factorial.js
   function factorial(n, i=1) {
     if(n === 0) { // Base case
       return i 
