@@ -5,7 +5,7 @@ date:   2017-11-20 21:42:28 +0200
 categories: Computer Science
 ---
 
-In this blog post, I would like to shed some light on tail recursion. To understand what tail recursion is, we need to understand what recursion or what a recursive call is?
+In this blog post, I would like to shed some light on tail recursion. To understand what tail recursion is, we need to understand what recursion or what a recursive call is.
 
 A recursive call happens when a function makes a call to itself. Generally, there are two things required when creating recursive functions: 
 
@@ -23,28 +23,38 @@ A recursive call happens when a function makes a call to itself. Generally, ther
 
 The above example is a normal recursive function, the same result can be achieved iteratively with the exact same run-time complexity O(n). For large numbers, the above approach uses way more memory, and this is just a side effect of how such recursive calls are represented in memory. Below are simplified stack frames for `factorial(3)`:
 
-**Frame 1**
+**Call 1**
   
   - factorial(3)
-  - n = 3
+  - stack
+    - n = 3
 
-**Frame 2)**
+**Call 2**
   - factorial(2)
-  - n = 2
+  - stack
+    - n = 3 
+    - n = 2
 
-**Frame 3**
+**Call 3**
   - factorial(1)
-  - n = 1
+  - stack
+    - n = 3
+    - n = 2
+    - n = 1
 
-**Frame 4**
+**Call 4**
   - factorial(0)
-  - n = 0
+  - stack
+    - n = 3
+    - n = 2
+    - n = 1
+    - n = 0
 
 In essence, each recursive call causes a stack frame creation(i.e. memory allocation). For trivial problems this may not be a problem. But for other scenarios like computing a [fibonacci(n)](https://stackoverflow.com/questions/13826810/fast-fibonacci-recursion) sequence, in cases where some computations are repeated the number of stack frames pushed on to the stack can become greater than n (unless you use __memoization__). 
 
 So how can we solve this and without moving to an iterative approach? We can use __tail recursion__. Essentially, the problem with the above is not with the recursive calls but rather how each call creates a new stack frame. We would like to use recursion without creating a huge memory footprint on the stack. Tail recursion grants us this ability. 
 
-We say that a function is using tail recursion, if it's last line of execution is a recursive call. A function using tail recursion will perform all its calcutations before making its recursive call, this means that each recursive call does not create a new stack frame. 
+We say that a function is using tail recursion, if its last line of execution is a recursive call. A function using tail recursion will perform all its calcutations before making its recursive call, this means that each recursive call does not create a new stack frame. 
 
 {% highlight javascript %}
   function factorial(n, i=1) {
