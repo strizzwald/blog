@@ -55,7 +55,7 @@ In essence, each recursive call causes a stack frame creation(i.e. memory alloca
 
 So how can we solve this and without moving to an iterative approach? We can use __tail recursion__. Essentially, the problem with the above is not with the recursive calls but rather how each call creates a new stack frame. We would like to use recursion without creating a huge memory footprint on the stack. Tail recursion grants us this ability. 
 
-We say that a function is using tail recursion, if its last line of execution is a recursive call. A function using tail recursion will perform all its calcutations before making its recursive call, this means that each recursive call does not create a new stack frame. 
+We say that a function is using tail recursion, if its last line of execution is a recursive call. A function using tail recursion will perform all its calculations before making its recursive call, this means that each recursive call does not create a new stack frame. 
 
 {% highlight javascript %}
   // factorial.js
