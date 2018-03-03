@@ -96,7 +96,7 @@ The last form of binding we can perform is the new binding.
 
 The `new` keyword creates a new object that uses **itself** as a this binding, i.e. when `this` reference is called within `sayHello`, it refers to the `sayHello` object instance, much like other OOP languages.
 
-{% asciinema_play ptwOx7REMWrwBAeNyw4cHiCjN %}
+{::nomarkdown}<center><script type="text/javascript" src="https://asciinema.org/a/ptwOx7REMWrwBAeNyw4cHiCjN.js" id="asciicast-ptwOx7REMWrwBAeNyw4cHiCjN" async=""></script></center>{:/}
 
 This is the behavior most programmers expect their code to have, but evidently, we need to be more cautious about making assumptions on how `this` is bound. Another option is to go around "dynamic scoping" and access `this` in the lexical scope. 
 Ever seen this type of code anywhere?
