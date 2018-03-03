@@ -33,13 +33,6 @@ At a high level, the `this` binding can happen in one of 4 ways:
 
 # Default binding
 
-{% highlight javascript %}
-  function sayHello(name) {
-    console.log(this.name)
-  }
-  sayHello('Kenny');
-{% endhighlight %}
-
 It is easy to think that the ouput from `console.log` would be Kenny, but this is not the case. The confusion lies in thinking that the function parameter `name` can be accessed through the `this` context. The function parameter `name` is lexically scoped to function `sayHello`, whereas the `this` keyword is not lexically scoped. The `this` keyword uses "dynamic scoping", i.e. it's scope is determined on where and how the function call (sayHello in our case) is made.
 
 In the above snippet, `sayHello('Kenny')` is called in the global scope, therefore Javascript will look for `name` in the global scope. This is called default binding. Because we do not have `name` defined anywhere in the global scope, `this.name` holds the value `undefined`, the property `name` is added to the global scope and set to the value `undefined`. To prevent JavaScript from creating this global property, you can add 'use strict', this will cause a `TypeError` exception to be thrown when `name` is no found in the global scope instead of creating one.
@@ -62,7 +55,7 @@ The below ascii cast demonstrates default binding:
 
 With implicit binding, the `this` keyword does not bind to the global scope, it infers its binding from the object with the function reference (greeter in this example). The object `greeter` makes a call to `sayHello()` using its function reference, the `this` keyword then references the `greeter` object, which is why we can access the property `name`.  Were this not the case, JavaScript would have attempted default binding. 
 
-{% asciinema_play QlW89qFhfSLeovn8DSawEMPyV %}
+# {% asciinema_play QlW89qFhfSLeovn8DSawEMPyV %}
 
 What if this is not the behaviour you want? What if you want to resolve the `name` from another property in the global scope?
 
