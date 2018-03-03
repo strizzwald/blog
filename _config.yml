@@ -29,7 +29,6 @@ github_username:  strizzwald
 # Build settings
 markdown: kramdown
 theme: minima
-future: true
 plugins:
   - jekyll-feed
 

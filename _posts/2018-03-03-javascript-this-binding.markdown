@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  JavaScript this binding
+title:  "JavaScript this binding"
 date:   2018-03-03 12:30:00 +0200
 categories: Javascript
 ---
