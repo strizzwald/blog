@@ -46,7 +46,7 @@ In the above snippet, `sayHello('Kenny')` is called in the global scope, therefo
 
 The below ascii cast demonstrates default binding:
 
-{% asciinema_play MwPyQ7zT7CYMn2jUPmvo4BCM3 %}
+# {% asciinema_play MwPyQ7zT7CYMn2jUPmvo4BCM3 %}
 
 # Implict binding
 
@@ -82,7 +82,7 @@ What if this is not the behaviour you want? What if you want to resolve the `nam
 
 Explicit binding allows the programmer to enforce at compile time, what the `this` binding is. You can do this by using the `.call()`, `.apply()` or the `.bind()` methods. Each of these methods take an object which can be used as the `this` binding. In the above snippet, we **explicitly** set the this reference to `globalGreeter`, so that when `sayHello` is called, it does not use implict binding and print 'Kenny'.
 
-{% asciinema_play p2o2EIvCaeObyCGm8bss9AQwW %}
+# {% asciinema_play p2o2EIvCaeObyCGm8bss9AQwW %}
 
 # New binding
 
@@ -98,7 +98,7 @@ The last form of binding we can perform is the new binding.
 
 The `new` keyword creates a new object that uses **itself** as a this binding, i.e. when `this` reference is called within `sayHello`, it refers to the `sayHello` object instance, much like other OOP languages.
 
-{% asciinema_play ptwOx7REMWrwBAeNyw4cHiCjN %}
+# {% asciinema_play ptwOx7REMWrwBAeNyw4cHiCjN %}
 
 This is the behavior most programmers expect their code to have, but evidently, we need to be more cautious about making assumptions on how `this` is bound. Another option is to go around "dynamic scoping" and access `this` in the lexical scope. 
 Ever seen this type of code anywhere?
