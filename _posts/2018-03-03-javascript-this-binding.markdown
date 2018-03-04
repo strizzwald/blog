@@ -2,10 +2,10 @@
 layout: post
 title:  "JavaScript this binding"
 date:   2018-03-03 12:30:00 +0200
-categories: Javascript
+categories: JavaScript
 ---
 
-Having done JavaScript for about 4 years, I have found that there are certain things about the language that I still did not understand. As we all know, JavaScript is an object-oriented programming language, anyone coming from other OOP languages generally would not struggle writing JavaScript. The problem comes with most of us when we take certain constructs from other OOP languages and assume that they work the same way in Javascript.
+Having done JavaScript for about 4 years, I have found that there are certain things about the language that I still did not understand. As we all know, JavaScript is an object-oriented programming language, anyone coming from other OOP languages generally would not struggle writing JavaScript. The problem comes with most of us when we take certain constructs from other OOP languages and assume that they work the same way in JavaScript.
 
 Take a look at this code snippet written in Java  
 
@@ -40,9 +40,9 @@ At a high level, the `this` binding can happen in one of 4 ways:
   sayHello('Kenny');
 {% endhighlight %}
 
-It is easy to think that the ouput from `console.log` would be Kenny, but this is not the case. The confusion lies in thinking that the function parameter `name` can be accessed through the `this` context. The function parameter `name` is lexically scoped to function `sayHello`, whereas the `this` keyword is not lexically scoped. The `this` keyword uses "dynamic scoping", i.e. it's scope is determined on where and how the function call (sayHello in our case) is made.
+It is easy to think that the output from `console.log` would be Kenny, but this is not the case. The confusion lies in thinking that the function parameter `name` can be accessed through the `this` context. The function parameter `name` is lexically scoped to function `sayHello`, whereas the `this` keyword is not lexically scoped. The `this` keyword uses "dynamic scoping", i.e. it's scope is determined on where and how the function call (sayHello in our case) is made.
 
-In the above snippet, `sayHello('Kenny')` is called in the global scope, therefore Javascript will look for `name` in the global scope. This is called default binding. Because we do not have `name` defined anywhere in the global scope, `this.name` holds the value `undefined`, the property `name` is added to the global scope and set to the value `undefined`. To prevent JavaScript from creating this global property, you can add 'use strict', this will cause a `TypeError` exception to be thrown when `name` is no found in the global scope instead of creating one.
+In the above snippet, `sayHello('Kenny')` is called in the global scope, therefore JavaScript will look for `name` in the global scope. This is called default binding. Because we do not have `name` defined anywhere in the global scope, `this.name` holds the value `undefined`, the property `name` is added to the global scope and set to the value `undefined`. To prevent JavaScript from creating this global property, you can add 'use strict', this will cause a `TypeError` exception to be thrown when `name` is no found in the global scope instead of creating one.
 
 The below ascii cast demonstrates default binding:
 
@@ -112,4 +112,4 @@ Ever seen this type of code anywhere?
  
 the variable `self` can now be used in a lexical fashion, all rules about lexical scoping will now apply and you can ignore everything about dynamic scope. This is also what es6 `() => {}` arrow functions offer you, it is a bit more than syntactic sugar. And that's it, I hope you learnt something.
 
-I find javascript to be quite a fascinating and really misunderstood programming language, I am constantly learning new things about the language. A really good source of knowledge for me has been Kyle Simpson's [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS/) series of books, I urge you to give it a go. You might be suprised by how little we know about the workings of JavaScript, I definitely was. 
+I find JavaScript to be quite a fascinating and really misunderstood programming language, I am constantly learning new things about the language. A really good source of knowledge for me has been Kyle Simpson's [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS/) series of books, I urge you to give it a go. You might be suprised by how little we know about the workings of JavaScript, I definitely was. 
